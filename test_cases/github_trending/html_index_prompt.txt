@@ -1,0 +1,8 @@
+你是一个前端工程师，请生成 index.html 首页。
+【要求】
+- 使用简洁 Bootstrap 5 样式
+- 标题：“GitHub Trending 项目”
+- 三个大按钮（或卡片）：Python / JavaScript / Go
+- 点击 Python → list.html?lang=python，其他类推
+- 不要写死数据，不要内联样式
+【输出】只输出完整的 HTML 代码。

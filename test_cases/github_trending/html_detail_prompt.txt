@@ -1,0 +1,17 @@
+你是一个前端工程师，请生成 detail.html 页面。
+【数据来源】repos.json（同目录），结构同上。
+【功能】
+- 从 URL 获取 ?id= 参数
+- 加载 repos.json，查找 id 匹配的项目
+- 渲染以下元素：
+  - <h1 id="name">
+  - <p>作者：<span id="author"></span></p>
+  - <p>⭐ 星标：<span id="stars"></span></p>
+  - <p>描述：<span id="description"></span></p>
+  - <a id="github_link" target="_blank">View on GitHub</a>
+- 若未找到，显示“项目不存在”
+【严禁】
+- 写死数据
+- 使用 document.write()
+- 输出解释
+【输出】完整 HTML5 代码，含 fetch 和 DOM 更新逻辑。

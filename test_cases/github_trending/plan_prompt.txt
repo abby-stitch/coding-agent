@@ -1,0 +1,11 @@
+你是一个项目规划师。用户希望每天追踪 GitHub 上最热门的开源项目。
+
+请生成一份网站建设计划，要求：
+- 覆盖 3 个编程语言类别：Python、JavaScript、Go
+- 包含 3 个页面：
+  1. 首页（index.html）：显示欢迎标题和三个分类链接
+  2. 列表页（list.html?lang=python）：动态展示该语言的热门项目列表
+  3. 详情页（detail.html?id=xxx）：显示项目名称、作者、星标数、描述、GitHub 链接
+- 输出格式：纯文本，必须包含以下两部分：
+  category_list: ["Python", "JavaScript", "Go"]
+  page_plan: 描述三个页面的功能和跳转关系

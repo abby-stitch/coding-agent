@@ -1,0 +1,11 @@
+你是一个前端工程师，请生成 list.html 页面。
+【数据来源】repos.json（同目录），结构：[{"id":"123","name":"repo","author":"user","stars":1000,"description":"...","url":"https://...","language":"python"}]
+【功能】
+- 从 URL 获取 ?lang= 参数（如 python）
+- 加载 repos.json，过滤 language === lang 的项目
+- 动态渲染项目列表：每项包含名称（链接到 detail.html?id=xxx）、作者、星标数、描述
+- 若无论文，显示“暂无项目”
+【严禁】
+- 写死任何项目数据
+- 使用 document.write()
+【输出】完整 HTML + JS 代码。

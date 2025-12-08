@@ -1,0 +1,35 @@
+# html_agent.py
+from llm import call_llm, save_file, read_project_plan
+from config import CURRENT_TEST_CASE
+import os
+
+PROMPT_DIR = f"test_cases/{CURRENT_TEST_CASE}"
+
+def generate_all_html_pages():
+    plan = read_project_plan()
+
+    # --- 首页 ---
+    print("  🏠 正在生成首页 (index.html)...")
+    with open(f"{PROMPT_DIR}/html_index_prompt.txt", "r", encoding="utf-8") as f:
+        base_prompt = f.read()
+    full_prompt = f"项目规划：\n{plan}\n\n请根据以上规划生成首页：\n{base_prompt}"
+    html_index = call_llm(full_prompt)
+    save_file("outputs/index.html", html_index)
+
+    # --- 列表页 ---
+    print("  📄 正在生成列表页 (list.html)...")
+    with open(f"{PROMPT_DIR}/html_list_prompt.txt", "r", encoding="utf-8") as f:
+        base_prompt = f.read()
+    full_prompt = f"项目规划：\n{plan}\n\n请根据以上规划生成列表页：\n{base_prompt}"
+    html_list = call_llm(full_prompt)
+    save_file("outputs/list.html", html_list)
+
+    # --- 详情页 ---
+    print("  🔍 正在生成详情页 (detail.html)...")
+    with open(f"{PROMPT_DIR}/html_detail_prompt.txt", "r", encoding="utf-8") as f:
+        base_prompt = f.read()
+    full_prompt = f"项目规划：\n{plan}\n\n请根据以上规划生成详情页：\n{base_prompt}"
+    html_detail = call_llm(full_prompt)
+    save_file("outputs/detail.html", html_detail)
+
+    print("  ✅ 所有 HTML 页面生成完成！")

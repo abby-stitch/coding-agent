@@ -1,0 +1,37 @@
+你是一个前端工程师，请生成 list.html 页面，用于显示指定分类的论文列表。
+
+【上下文】
+{project_plan}
+
+【数据格式】
+论文数据来自 papers.json，结构如下：
+[
+  {{
+    "id": "2412.xxxxx",
+    "title": "...",
+    "authors": ["...", "..."],
+    "category": "cs.AI",
+    "submit_date": "2024-12-06",
+    "pdf_url": "https://arxiv.org/pdf/2412.xxxxx"
+  }}
+]
+
+【功能要求】
+1. 页面加载时，从 URL 获取 ?cat= 参数（如 ?cat=cs.AI）
+2. 用 fetch 加载 papers.json
+3. 筛选出 category 匹配的论文
+4. 动态生成列表项，每项包含：
+   - 论文标题（链接到 detail.html?id=xxx）
+   - 作者列表（逗号分隔）
+   - 提交日期
+   - [PDF] 链接（指向 pdf_url）
+5. 如果无匹配论文，显示“暂无论文”
+6. 不要写死任何论文数据！所有内容必须来自 papers.json
+
+【技术限制】
+- 纯静态 HTML + 原生 JavaScript（ES6+）
+- 不使用任何外部库
+- 所有 JS 写在 <script> 标签内
+
+【输出】
+只输出完整的 HTML 代码，不要 markdown，不要解释。

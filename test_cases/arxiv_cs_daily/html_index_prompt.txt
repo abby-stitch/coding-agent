@@ -1,0 +1,5 @@
+请生成 index.html（首页）代码，具体要求：
+1. 分类导航用 cs.AI、cs.TH、cs.CV、cs.LG 四个分类，横向排列（用 Bootstrap 简化样式，不用自己写 CSS）；
+2. 每个分类的超链接格式：list.html?cat=分类名（比如 cs.AI 跳转 list.html?cat=cs.AI）；
+3. 页面标题是 "arXiv CS Daily"，居中显示；
+4. 只输出 HTML 代码，别加任何解释。

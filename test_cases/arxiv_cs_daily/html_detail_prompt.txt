@@ -1,0 +1,34 @@
+你是一个前端工程师，请生成 detail.html 页面，用于显示单篇论文的详细信息。
+【数据来源】
+- 论文数据来自 papers.json（与本文件同目录）
+- JSON 格式：[{"id":"2412.xxxxx","title":"...","authors":["A","B"],"category":"cs.AI","submit_date":"2024-12-06","pdf_url":"https://arXiv.org/pdf/2412.xxxxx"}]
+【功能要求】
+1. 页面加载时，从 URL 获取 ?id= 参数
+2. 用 fetch 加载 papers.json
+3. 查找 id 匹配的论文并动态渲染以下元素：
+   - <h1 id="title"> → 论文标题
+   - <span id="authors"> → 作者（逗号分隔）
+   - <span id="category"> → 分类
+   - <span id="submit_date"> → 提交日期
+   - <a id="pdf_link" target="_blank"> → PDF 链接
+   - <pre id="bibtex"></pre> → BibTeX 内容
+   - <button onclick="copyBibtex()">复制 BibTeX</button>
+4. 如果未找到论文，将 #title 设为“论文不存在”
+5. BibTeX 格式：
+@article{ID,
+  title={TITLE},
+  author={AUTHOR1 and AUTHOR2},
+  year={YEAR},
+  eprint={ID},
+  archivePrefix={arXiv},
+  primaryClass={CATEGORY}
+}
+【严禁】
+- 写死任何论文数据（如 "Test Paper"）
+- 使用 document.write()
+- 输出任何解释、注释或 Markdown
+【输出】
+只输出完整的 HTML 代码，必须包含：
+- 基本 HTML5 结构
+- 所有上述 id 的元素
+- 完整的 JavaScript 逻辑（fetch + 渲染 + copyBibtex）

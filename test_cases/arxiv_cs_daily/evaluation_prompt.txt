@@ -1,0 +1,39 @@
+# test_cases/arxiv_cs_daily/prompts/evaluation_prompt.txt
+
+你是一位资深全栈工程师，请严格评审以下「arXiv CS Daily」项目的输出是否满足原始需求。
+
+【评审依据】
+- 必须支持四个分类：cs.AI, cs.TH, cs.CV, cs.LG
+- 首页（index.html）必须包含指向 list.html?cat=xxx 的导航链接
+- 列表页（list.html）必须能根据 URL 参数 cat 动态筛选论文
+- 详情页（detail.html）必须通过 id 参数显示对应论文，并提供“复制 BibTeX”功能
+- papers.json 必须包含字段：id, title, authors, category, submit_date, pdf_url
+- 所有 PDF 链接必须以 https://arxiv.org/pdf/ 开头并以 .pdf 结尾
+
+【输入内容】
+- 项目规划：{project_plan}
+- 论文数据：{papers_json}
+- index.html：{index_html}
+- list.html：{list_html}
+- detail.html：{detail_html}
+
+【输出格式】
+请按以下结构输出评估报告（不要额外解释）：
+
+✅ 功能覆盖：
+- [✓/✗] 分类导航
+- [✓/✗] 动态筛选
+- [✓/✗] 详情页参数解析
+- [✓/✗] BibTeX 复制功能
+- [✓/✗] 数据字段完整
+
+⚠️ 问题列表：
+- ...
+
+❌ 严重缺陷：
+- ...
+
+💡 改进建议：
+- ...
+
+🎯 总体结论：通过 / 不通过

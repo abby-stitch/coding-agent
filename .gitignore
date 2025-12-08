@@ -1,0 +1,28 @@
+# ==============================
+# 白名单策略：先忽略一切，再逐个放行
+# ==============================
+
+# 忽略所有文件和目录
+*
+
+# 但不忽略以下文件/目录（即“允许跟踪”）
+
+# 允许代码和配置
+!/.gitignore
+
+# 允许 agents 及其 Python 文件
+!/config.py
+!/evaluation_agent.py
+!/generate_data.py
+!/html_agent.py
+!/llm.py
+!/main.py
+
+
+# 允许 test_cases 目录（含 prompts）
+!/test_cases/
+!/test_cases/**/*
+
+# 允许 README / docs
+!/README.md
+

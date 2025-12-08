@@ -1,0 +1,38 @@
+你是一位资深全栈工程师，请严格评审以下「GitHub Trending Daily」项目的输出是否满足原始需求。
+
+【评审依据】
+- 必须支持三个语言分类：Python, JavaScript, Go
+- 首页（index.html）必须包含指向 list.html?lang=xxx 的导航链接
+- 列表页（list.html）必须能根据 URL 参数 lang 动态筛选项目
+- 详情页（detail.html）必须通过 id 参数（格式如 owner/repo）显示对应项目
+- github_trending.json 必须包含字段：id, owner, repo, description, language, stars_today, url
+- 所有项目链接必须以 https://github.com/ 开头
+- 页面中不得包含写死的示例数据（如 "Test Project"）
+
+【输入内容】
+- 项目规划：{project_plan}
+- 项目数据：{papers_json}
+- index.html：{index_html}
+- list.html：{list_html}
+- detail.html：{detail_html}
+
+【输出格式】
+请按以下结构输出评估报告（不要额外解释）：
+
+✅ 功能覆盖：
+- [✓/✗] 语言分类导航
+- [✓/✗] 动态筛选（lang 参数）
+- [✓/✗] 详情页参数解析（id=owner/repo）
+- [✓/✗] 数据字段完整（id, owner, repo, stars_today 等）
+- [✓/✗] 无硬编码测试数据
+
+⚠️ 问题列表：
+- ...
+
+❌ 严重缺陷：
+- ...
+
+💡 改进建议：
+- ...
+
+🎯 总体结论：通过 / 不通过
