@@ -26,3 +26,5 @@
 # 允许 README / docs
 !/README.md
 
+.DS_Store
+**/.DS_Store # 忽略所有子目录中的 .DS_Store
