@@ -5,12 +5,10 @@
 # 忽略所有文件和目录
 *
 
-# 但不忽略以下文件/目录（即“允许跟踪”）
-
-# 允许代码和配置
+# 允许 .gitignore 自身（必须放在前面！）
 !/.gitignore
 
-# 允许 agents 及其 Python 文件
+# 允许代码和配置
 !/config.py
 !/evaluation_agent.py
 !/generate_data.py
@@ -18,13 +16,22 @@
 !/llm.py
 !/main.py
 
+# 允许 README
+!/README.md
 
-# 允许 test_cases 目录（含 prompts）
+# 允许 test_cases 目录结构和内容
 !/test_cases/
 !/test_cases/**/*
 
-# 允许 README / docs
-!/README.md
-
+# ❗️关键：在允许 test_cases 后，立即排除垃圾文件
+# （这些规则必须放在 !/test_cases/**/* 之后）
+test_cases/.DS_Store
+test_cases/**/*.DS_Store
 .DS_Store
-**/.DS_Store # 忽略所有子目录中的 .DS_Store
+**/.DS_Store
+
+# 可选：排除其他常见垃圾（建议加上）
+*.pyc
+__pycache__/
+*.log
+.env
