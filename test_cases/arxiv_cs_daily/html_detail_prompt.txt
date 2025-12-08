@@ -1,10 +1,10 @@
 你是一个前端工程师，请生成 detail.html 页面，用于显示单篇论文的详细信息。
 【数据来源】
-- 论文数据来自 papers.json（与本文件同目录）
+- 论文数据来自 data.json
 - JSON 格式：[{"id":"2412.xxxxx","title":"...","authors":["A","B"],"category":"cs.AI","submit_date":"2024-12-06","pdf_url":"https://arXiv.org/pdf/2412.xxxxx"}]
 【功能要求】
 1. 页面加载时，从 URL 获取 ?id= 参数
-2. 用 fetch 加载 papers.json
+2. 用 fetch 加载 data.json
 3. 查找 id 匹配的论文并动态渲染以下元素：
    - <h1 id="title"> → 论文标题
    - <span id="authors"> → 作者（逗号分隔）

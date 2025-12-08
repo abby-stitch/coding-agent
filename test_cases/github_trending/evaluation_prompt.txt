@@ -5,13 +5,13 @@
 - 首页（index.html）必须包含指向 list.html?lang=xxx 的导航链接
 - 列表页（list.html）必须能根据 URL 参数 lang 动态筛选项目
 - 详情页（detail.html）必须通过 id 参数（格式如 owner/repo）显示对应项目
-- github_trending.json 必须包含字段：id, owner, repo, description, language, stars_today, url
+- data.json 必须包含字段：id, owner, repo, description, language, stars_today, url
 - 所有项目链接必须以 https://github.com/ 开头
-- 页面中不得包含写死的示例数据（如 "Test Project"）
 
 【输入内容】
 - 项目规划：{project_plan}
-- 项目数据：{papers_json}
+- 项目数据：{data_json}
+- data.json：{data_json}
 - index.html：{index_html}
 - list.html：{list_html}
 - detail.html：{detail_html}

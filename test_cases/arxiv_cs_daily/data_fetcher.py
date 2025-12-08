@@ -73,7 +73,7 @@ def run_data_agent():
     project_root = script_dir.parent.parent           # .../test_cases → .../project-root
     output_dir = project_root / "outputs"
     output_dir.mkdir(exist_ok=True)
-    output_path = output_dir / "papers.json"
+    output_path = output_dir / "data.json"
 
     # 写入文件
     with open(output_path, "w", encoding="utf-8") as f:

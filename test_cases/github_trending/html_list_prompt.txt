@@ -3,7 +3,7 @@
 1. 用 HTML5 标准结构，不使用内联样式（用 Bootstrap 5 但禁止写 style="..."）
 2. **必须包含以下 JavaScript 逻辑**（直接写在 script 标签内，不要注释）：
    - 读取 URL 参数 `lang`（默认值 'python'）
-   - 通过 fetch('github_trending.json') 获取数据
+   - 通过 fetch('data.json') 获取数据
    - **过滤 language 字段时忽略大小写**（使用 p.language.toLowerCase() === lang.toLowerCase()）
    - 用 innerHTML 动态渲染项目卡片（每项包含：repo 名（链接到 detail.html?id=owner/repo）、author、stars_today、description）
    - 若无数据，显示“暂无 [lang] 项目”

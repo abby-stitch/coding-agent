@@ -86,7 +86,7 @@ def parse_github_trending(html):
 
 def run_data_agent():
     """
-    Data Agent 主入口：抓取 GitHub Trending 项目，输出为 outputs/github_trending.json。
+    Data Agent 主入口：抓取 GitHub Trending 项目，输出为 outputs/data.json。
     不使用 LLM，确保数据真实性。
     """
     print("  → 开始从 GitHub 抓取 trending 项目...")
@@ -111,7 +111,7 @@ def run_data_agent():
     project_root = script_dir.parent.parent
     output_dir = project_root / "outputs"
     output_dir.mkdir(exist_ok=True)
-    output_path = output_dir / "github_trending.json"
+    output_path = output_dir / "data.json"
 
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(projects, f, ensure_ascii=False, indent=2)

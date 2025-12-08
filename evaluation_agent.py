@@ -25,9 +25,11 @@ def run_evaluation_agent():
     PROMPT_DIR = f"test_cases/{CURRENT_TEST_CASE}"
     OUTPUTS_DIR = "outputs"
 
-    # 读取各部分生成内容
+    # 读取统一数据文件（关键！）
+    data_json = load_file_content(f"{OUTPUTS_DIR}/data.json")
+    
+    # 读取其他文件
     project_plan = read_project_plan()
-    papers_json = load_file_content(f"{OUTPUTS_DIR}/papers.json")
     index_html = load_file_content(f"{OUTPUTS_DIR}/index.html")
     list_html = load_file_content(f"{OUTPUTS_DIR}/list.html")
     detail_html = load_file_content(f"{OUTPUTS_DIR}/detail.html")
@@ -37,10 +39,11 @@ def run_evaluation_agent():
     if not os.path.exists(eval_prompt_template):
         raise FileNotFoundError(f"缺失 evaluation prompt: {eval_prompt_template}")
 
+    # 统一传递 data_json 参数
     full_prompt = load_prompt(
         eval_prompt_template,
         project_plan=project_plan,
-        papers_json=papers_json,
+        data_json=data_json,  # ✅ 统一参数名
         index_html=index_html,
         list_html=list_html,
         detail_html=detail_html

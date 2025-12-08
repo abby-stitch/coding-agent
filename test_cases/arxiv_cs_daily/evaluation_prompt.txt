@@ -7,12 +7,12 @@
 - 首页（index.html）必须包含指向 list.html?cat=xxx 的导航链接
 - 列表页（list.html）必须能根据 URL 参数 cat 动态筛选论文
 - 详情页（detail.html）必须通过 id 参数显示对应论文，并提供“复制 BibTeX”功能
-- papers.json 必须包含字段：id, title, authors, category, submit_date, pdf_url
+- data.json 必须包含字段：id, title, authors, category, submit_date, pdf_url
 - 所有 PDF 链接必须以 https://arxiv.org/pdf/ 开头并以 .pdf 结尾
 
 【输入内容】
 - 项目规划：{project_plan}
-- 论文数据：{papers_json}
+- 论文数据：{data_json}
 - index.html：{index_html}
 - list.html：{list_html}
 - detail.html：{detail_html}

@@ -1,13 +1,20 @@
 你是一个专业前端工程师，必须生成一个 **可直接运行的 HTML 文件**（detail.html），满足以下要求：
 
 1. 用 HTML5 标准结构，不使用内联样式（用 Bootstrap 5 但禁止写 style="..."）
-2. **必须包含以下 JavaScript 逻辑**（直接写在 script 标签内，不要注释）：
+2. **必须包含以下 JavaScript 逻辑**（直接写在 script 标签内）：
    - 读取 URL 参数 `id`（格式 owner/repo，如 microsoft/VibeVoice）
-   - 通过 fetch('github_trending.json') 获取数据
-   - 查找 id = 参数的项目
-   - **渲染 GitHub 链接时，必须使用 ES6 模板字符串**：`<a href="${project.url}" target="_blank" class="btn btn-primary">View on GitHub</a>`
+   - **拆分参数**：`const [owner, repo] = id.split('/');`
+   - 通过 fetch('data.json') 获取数据
+   - **查找项目**：`const project = data.find(p => p.owner === owner && p.repo === repo);`
+   - **字段映射**（必须使用以下字段）：
+        * 项目名称：`project.repo`
+        * 作者：`project.owner`
+        * 星标数：`project.stars_today`
+        * 描述：`project.description`
+        * GitHub 链接：`project.url`
+   - **渲染 GitHub 链接**：`<a href="${project.url}" target="_blank" class="btn btn-primary">View on GitHub</a>`
    - 若未找到项目，显示“项目不存在”
 3. 页面顶部有返回列表页链接（带原 lang 参数）：[返回列表](list.html?lang=python)
-4. **禁止**使用 document.write()、硬编码测试数据、Markdown 代码块
+4. **禁止**：使用 `project.name`、`project.author`、硬编码测试数据
 
-请直接输出纯 HTML 代码，不要任何解释或额外文字。
+请直接输出纯 HTML 代码，不要任何解释。
