@@ -51,7 +51,7 @@ def parse_arxiv_response(xml_data, expected_category):
 
 def run_data_agent():
     """
-    Data Agent 主入口：从 arXiv 抓取真实论文数据，输出为 outputs/papers.json。
+    Data Agent 主入口：从 arXiv 抓取真实论文数据，输出为 outputs/data.json。
     不使用 LLM，确保数据真实性。
     """
     print("  → 开始从 arXiv 抓取真实论文数据...")
