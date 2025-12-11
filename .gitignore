@@ -13,6 +13,7 @@
 !/config.py
 !/main.py
 !/plan_agent.py
+!/data_agent.py
 !/html_agent.py
 !/evaluation_agent.py
 
@@ -22,7 +23,7 @@
 # ✅ test_cases 白名单（逐个文件列出）
 !/test_cases/
 !/test_cases/arxiv_cs_daily/
-!/test_cases/arxiv_cs_daily/data_fetcher.py
+!/test_cases/arxiv_cs_daily/data_prompt.txt
 !/test_cases/arxiv_cs_daily/evaluation_prompt.txt
 !/test_cases/arxiv_cs_daily/html_detail_prompt.txt
 !/test_cases/arxiv_cs_daily/html_index_prompt.txt
@@ -30,7 +31,7 @@
 !/test_cases/arxiv_cs_daily/plan_prompt.txt
 
 !/test_cases/github_trending/
-!/test_cases/github_trending/data_fetcher.py
+!/test_cases/github_trending/data_prompt.txt
 !/test_cases/github_trending/evaluation_prompt.txt
 !/test_cases/github_trending/html_detail_prompt.txt
 !/test_cases/github_trending/html_index_prompt.txt

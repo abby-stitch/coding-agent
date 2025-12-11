@@ -1,32 +1,30 @@
 你是一个项目规划师。用户希望每天追踪 GitHub 上最热门的开源项目。
-
 请生成一份网站建设计划，要求：
 - 覆盖 3 个编程语言类别：Python、JavaScript、Go（必须明确列出）
 - 包含 3 个页面，每个页面必须明确具体展示内容：
-  1. 首页（index.html）：显示欢迎标题和三个分类链接（每个链接带语言参数，如 "Python" → list.html?lang=python）
-  2. 列表页（list.html?lang=python）：动态展示该语言的热门项目列表，每个项目必须显示：
-      ① 项目名称（超链接到详情页）
-      ② 作者（显示为 "作者: username"）
-      ③ 星标数（显示为 "⭐ 1,234"）
-  3. 详情页（detail.html?id=microsoft/VibeVoice）：显示项目完整信息，必须包含：
-      ① 项目名称
-      ② 作者
-      ③ 星标数
-      ④ 项目描述（无描述时显示 "无描述"）
-      ⑤ GitHub 链接（显示为 "View on GitHub"，点击后跳转到真实 GitHub 页面，不能是 404）
-      ⑥ 项目语言（显示为 "语言: Python"）
-
-- 输出格式：纯文本，必须包含以下两部分：
-  A. 核心文件（3个，含文件路径+作用）
-  B. 每个文件的3个关键开发点（只说要做啥，别扯技术细节）
-
-示例格式：
+1. 首页（index.html）：显示欢迎标题和三个分类链接（每个链接带语言参数，如 "Python" → list.html?lang=python）
+2. 列表页（list.html?lang=python）：动态展示该语言的热门项目列表，每个项目必须显示：
+① 项目名称（超链接到详情页）
+② 作者（显示为 "作者: username"）
+③ 星标数（显示为 "⭐ 1,234"）
+3. 详情页（detail.html?id=microsoft/VibeVoice）：显示项目完整信息，必须包含：
+① 项目名称
+② 作者
+③ 星标数
+④ 项目描述（无描述时显示 "无描述"）
+⑤ GitHub 链接（显示为 "View on GitHub"，点击后跳转到真实 GitHub 页面，不能是 404）
+⑥ 项目语言（显示为 "语言: Python"）
+请你当项目规划师，只输出 2 部分内容，别加多余解释，格式清晰：
+A. 3 个核心文件（含文件路径+作用）；
+B. 每个文件的 3 个关键开发点（**必须指定路径格式**，别扯技术细节）。
+示例格式（你照着这个来）：
 A. 核心文件：
-1. index.html（根目录）：首页，分类导航入口；
-2. list.html（根目录）：项目列表页，按语言显示项目；
-3. detail.html（根目录）：项目详情页，显示完整信息。
-
+1. data.json（根目录）：由 Data Agent 抓取的真实 GitHub Trending 项目数据；
+2. index.html（根目录）：首页，分类导航入口；
+3. list.html（根目录）：项目列表页，按语言显示项目；
+4. detail.html（根目录）：项目详情页，显示完整信息。
 B. 开发要点：
-1. index.html：① 横向排列 3 个分类；② 点击跳转 list.html 并带语言参数；③ 样式简洁；
-2. list.html：① 读取项目数据；② 按语言筛选；③ 项目名称超链接到 detail.html；
-3. detail.html：① 接收项目ID；② 显示 GitHub 链接；③ 显示星标数和描述。
+1. data.json：① 包含 id（格式为 owner/repo）、owner、repo、stars_today、description、language、url 字段；② 格式为 JSON 数组；③ 数据覆盖 Python、JavaScript、Go 三类各至少 2 条真实项目；
+2. index.html：① 横向排列 3 个分类；② 点击跳转 list.html 并带语言参数；③ 样式简洁；
+3. list.html：① **使用绝对路径 /data.json 读取数据**；② 按 lang 参数筛选项目；③ 项目名称超链接到 detail.html?id=owner/repo；
+4. detail.html：① **使用绝对路径 /data.json 读取数据**；② 显示项目完整信息（含 GitHub 链接和语言）；③ 实现“View on GitHub”跳转到真实 URL。

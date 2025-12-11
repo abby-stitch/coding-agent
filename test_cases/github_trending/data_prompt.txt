@@ -1,0 +1,31 @@
+请输出完整可运行的Python代码，仅输出代码，无任何额外解释、注释、Markdown格式，严格满足：
+1. 数据抓取：
+- 目标：GitHub Trending 今日热门（仅daily）
+- 语言：Python、JavaScript、Go（各最多10条，总≤30条）
+- 字段（严格一致，不可增减）：
+id: "owner/repo"格式
+owner: 仓库所有者
+repo: 仓库名称
+description: 描述（无则填""）
+language: 编程语言（无则填抓取语言）
+stars_today: 今日新增星标数字符串（仅数字/千分位，无则填"0"）
+url: "https://github.com/owner/repo"格式（github.com后必有/）
+fetch_date: 抓取日期（YYYY-MM-DD，UTC时间）
+2. 技术实现：
+- 网络请求：urllib.request，User-Agent: "Mozilla/5.0 (compatible; ArxivAgent/1.0; +https://github.com/yourname)"
+- 解析：BeautifulSoup，规则：
+项目列表：article.Box-row
+id：h2 a标签href.strip("/")
+描述：p.col-9文本.strip()
+语言：span[itemprop='programmingLanguage']文本
+stars_today：含"d-inline-block float-sm-right"且含"stars today"/"star today"的span，提取数字
+- 错误处理：
+单语言抓取失败跳过
+无数据时生成1条示例：id="example/hello-world"，owner="example"，repo="hello-world"，description="Sample project"，language="Python"，stars_today="123"，url="https://github.com/example/hello-world"，fetch_date按格式填充
+单请求超时≤10秒，禁止time.sleep
+3. URL生成：
+- 必须通过"https://github.com/" + id_str拼接（id_str为owner/repo）
+4. 输出要求：
+- 脚本执行后，仅stdout打印纯JSON数组（含所有指定字段，无多余字段）
+- JSON格式正确，特殊字符转义，无语法错误
+- 不打印日志、调试信息，不手动保存文件

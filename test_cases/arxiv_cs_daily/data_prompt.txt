@@ -1,7 +1,24 @@
-生成 8 条 arXiv CS 论文的模拟数据，包含 4 个分类（cs.AI、cs.TH、cs.CV、cs.LG 各 2 条），
-每条数据必须包含：id（数字，从 1 开始）、title（论文标题）、authors（作者，3-5 人）、
-category（分类标签，如 cs.AI）、submit_date（提交日期，格式 2025-XX-XX）、pdf_url（arXiv 真实格式的链接，比如 https://arxiv.org/pdf/2511.XXXX.pdf）。
-要求：
-1. 只输出 JSON 格式，不要任何解释；
-2. JSON 最外层是数组，每条数据是对象；
-3. 标题和作者名字要像真实的 CS 论文，pdf_url 格式正确。
+你是一个专业的数据工程师，请编写一个完整的 Python 脚本，从 arXiv 官方 RSS 接口抓取真实的计算机科学论文数据。
+
+具体要求：
+- 抓取四个分类：cs.AI、cs.TH、cs.CV、cs.LG
+- 每个分类获取最近提交的 2 篇论文（共 8 篇）
+- 每篇论文必须包含以下字段：
+  * id: 论文 ID，格式如 "2412.12345"
+  * title: 论文标题（字符串）
+  * authors: 作者列表（字符串列表）
+  * category: 分类标签（如 "cs.AI"）
+  * submit_date: 提交日期，格式为 "YYYY-MM-DD"
+  * pdf_url: PDF 链接，格式为 "https://arxiv.org/pdf/{id}.pdf"
+
+数据来源：
+- 使用 arXiv RSS 接口：http://export.arxiv.org/rss/{category}
+- 使用 feedparser 库解析 RSS
+
+输出要求：
+- 脚本最后必须执行：print(json.dumps(papers, indent=2))
+- 只输出可直接运行的 Python 代码
+- 不要任何解释、注释、Markdown
+- 处理异常，确保脚本能正常退出
+
+现在请直接输出完整的 Python 脚本。
