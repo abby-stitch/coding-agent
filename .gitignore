@@ -38,6 +38,16 @@
 !/test_cases/github_trending/html_list_prompt.txt
 !/test_cases/github_trending/plan_prompt.txt
 
+# arXiv_cs_daily_output
+!/outputs_arxiv_cs_daily/
+!/outputs_arxiv_cs_daily/data.json
+!/outputs_arxiv_cs_daily/evaluation_report.txt
+!/outputs_arxiv_cs_daily/detail.html
+!/outputs_arxiv_cs_daily/index.html
+!/outputs_arxiv_cs_daily/list.html
+!/outputs_arxiv_cs_daily/project_plan.txt
+!/outputs_arxiv_cs_daily/generated_data_scraper.py
+
 # 全局忽略垃圾文件（保险）
 .DS_Store
 **/.DS_Store

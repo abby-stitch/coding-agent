@@ -1,0 +1,62 @@
+[
+  {
+    "id": "2512.07841",
+    "title": "Impact of Data-Oriented and Object-Oriented Design on Performance and Cache Utilization with Artificial Intelligence Algorithms in Multi-Threaded CPUs",
+    "authors": [
+      "Gabriel M. Arantes, Richard F. Pinto, Bruno L. Dalmazo, Eduardo N. Borges, Giancarlo Lucca, Viviane L. D. de Mattos, Fabian C. Cardoso, Rafael A. Berri"
+    ],
+    "category": "cs.AI",
+    "submit_date": "2025-12-10",
+    "pdf_url": "https://arxiv.org/pdf/2512.07841.pdf"
+  },
+  {
+    "id": "2512.07926",
+    "title": "Can AI autonomously build, operate, and use the entire data stack?",
+    "authors": [
+      "Arvind Agarwal, Lisa Amini, Sameep Mehta, Horst Samulowitz, Kavitha Srinivas"
+    ],
+    "category": "cs.AI",
+    "submit_date": "2025-12-10",
+    "pdf_url": "https://arxiv.org/pdf/2512.07926.pdf"
+  },
+  {
+    "id": "2512.07838",
+    "title": "Detection of Cyberbullying in GIF using AI",
+    "authors": [
+      "Pal Dave, Xiaohong Yuan, Madhuri Siddula, Kaushik Roy"
+    ],
+    "category": "cs.CV",
+    "submit_date": "2025-12-10",
+    "pdf_url": "https://arxiv.org/pdf/2512.07838.pdf"
+  },
+  {
+    "id": "2512.07925",
+    "title": "Near-real time fires detection using satellite imagery in Sudan conflict",
+    "authors": [
+      "Kuldip Singh Atwal, Dieter Pfoser, Daniel Rothbart"
+    ],
+    "category": "cs.CV",
+    "submit_date": "2025-12-10",
+    "pdf_url": "https://arxiv.org/pdf/2512.07925.pdf"
+  },
+  {
+    "id": "2512.07843",
+    "title": "ThreadWeaver: Adaptive Threading for Efficient Parallel Reasoning in Language Models",
+    "authors": [
+      "Long Lian, Sida Wang, Felix Juefei-Xu, Tsu-Jui Fu, Xiuyu Li, Adam Yala, Trevor Darrell, Alane Suhr, Yuandong Tian, Xi Victoria Lin"
+    ],
+    "category": "cs.LG",
+    "submit_date": "2025-12-10",
+    "pdf_url": "https://arxiv.org/pdf/2512.07843.pdf"
+  },
+  {
+    "id": "2512.07844",
+    "title": "Space Alignment Matters: The Missing Piece for Inducing Neural Collapse in Long-Tailed Learning",
+    "authors": [
+      "Jinping Wang, Zhiqiang Gao, Zhiwu Xie"
+    ],
+    "category": "cs.LG",
+    "submit_date": "2025-12-10",
+    "pdf_url": "https://arxiv.org/pdf/2512.07844.pdf"
+  }
+]

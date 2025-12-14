@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>论文列表</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      border-bottom: 1px solid #ddd;
+      padding: 15px 0;
+    }
+    .title {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+    .authors {
+      color: #555;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+    .date {
+      color: #888;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+    .pdf-link {
+      display: inline-block;
+      padding: 5px 10px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .no-results {
+      text-align: center;
+      color: #888;
+      font-size: 16px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>论文列表</h1>
+    <ul id="paper-list"></ul>
+  </div>
+
+  <script>
+    // 获取 URL 中的分类参数
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('cat');
+
+    // 从 data.json 加载数据
+    fetch('/data.json')
+      .then(response => response.json())
+      .then(data => {
+        const filteredPapers = data.filter(paper => paper.category === category);
+        const listElement = document.getElementById('paper-list');
+        if (filteredPapers.length === 0) {
+          listElement.innerHTML = '<li class="no-results">暂无论文</li>';
+          return;
+        }
+
+        filteredPapers.forEach(paper => {
+          const li = document.createElement('li');
+          li.innerHTML = `
+            <div class="title"><a href="detail.html?id=${paper.id}">${paper.title}</a></div>
+            <div class="authors">${paper.authors.join(', ')}</div>
+            <div class="date">${paper.submit_date}</div>
+            <a class="pdf-link" href="${paper.pdf_url}" target="_blank">[PDF]</a>
+          `;
+          listElement.appendChild(li);
+        });
+      })
+      .catch(error => {
+        console.error('加载数据失败:', error);
+        const listElement = document.getElementById('paper-list');
+        listElement.innerHTML = '<li class="no-results">加载数据失败</li>';
+      });
+  </script>
+</body>
+</html>

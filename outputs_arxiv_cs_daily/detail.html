@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>论文详情</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    #title {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    #authors, #category, #submit_date {
+      display: block;
+      margin: 5px 0;
+    }
+    #pdf_link {
+      display: block;
+      margin: 10px 0;
+      color: blue;
+      text-decoration: underline;
+    }
+    #bibtex {
+      background: #f4f4f4;
+      padding: 10px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    button {
+      margin-top: 10px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="title">加载中...</h1>
+  <span id="authors"></span>
+  <span id="category"></span>
+  <span id="submit_date"></span>
+  <a id="pdf_link" target="_blank"></a>
+  <pre id="bibtex"></pre>
+  <button onclick="copyBibtex()">复制 BibTeX</button>
+
+  <script>
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    async function fetchData() {
+      try {
+        const response = await fetch('/data.json');
+        if (!response.ok) throw new Error('Network response was not ok');
+        return await response.json();
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        return [];
+      }
+    }
+
+    function renderPaper(data, paperId) {
+      const paper = data.find(item => item.id === paperId);
+      if (!paper) {
+        document.getElementById('title').textContent = '论文不存在';
+        return;
+      }
+
+      document.getElementById('title').textContent = paper.title;
+      document.getElementById('authors').textContent = '作者：' + paper.authors.join(', ');
+      document.getElementById('category').textContent = '分类：' + paper.category;
+      document.getElementById('submit_date').textContent = '提交日期：' + paper.submit_date;
+      document.getElementById('pdf_link').href = paper.pdf_url;
+      document.getElementById('pdf_link').textContent = '查看 PDF';
+
+      const bibtex = `@article{${paper.id},
+  title={${paper.title}},
+  author={${paper.authors.join(' and ')}},
+  year={${paper.submit_date.split('-')[0]}},
+  eprint={${paper.id}},
+  archivePrefix={arXiv},
+  primaryClass={${paper.category}}
+}`;
+      document.getElementById('bibtex').textContent = bibtex;
+    }
+
+    function copyBibtex() {
+      const bibtexText = document.getElementById('bibtex').textContent;
+      navigator.clipboard.writeText(bibtexText).then(() => {
+        alert('BibTeX 已复制到剪贴板');
+      }).catch(err => {
+        console.error('无法复制文本: ', err);
+      });
+    }
+
+    (async () => {
+      const paperId = getQueryParam('id');
+      if (!paperId) {
+        document.getElementById('title').textContent = '论文不存在';
+        return;
+      }
+
+      const data = await fetchData();
+      renderPaper(data, paperId);
+    })();
+  </script>
+</body>
+</html>
