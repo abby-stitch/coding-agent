@@ -89,7 +89,10 @@ touch test_cases/todo_list/{plan_prompt.txt,data_prompt.txt,html_index_prompt.tx
 
 # 3. Update config.py
 echo 'SELECTED_TEST_CASE = "todo_list"' > config.py
+```
 
 ## 5. Notes
-- **Output Overwrite**: The `outputs/` folder is overwritten on each run—rename it (e.g., `outputs_github_trending_20251214`) to back up results.
-- **Prompt Consistency**: Ensure prompt files use consistent field names (e.g., `data.json` fields match HTML page references) to avoid `undefined` in pages.
+- Each time `main.py` is run, a new `outputs` folder is generated. It is recommended to rename it promptly to avoid overwriting existing files.
+- The naming of prompt files for all test cases must be consistent with existing cases. Refer to the `arxiv_cs_daily` folder for the required format.
+- The evaluation report `evaluation_report.txt` is generated in the outputs folder, and the review rules are defined by the `evaluation_prompt.txt` of the corresponding test case.
+
