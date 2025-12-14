@@ -19,6 +19,8 @@
 
 # 允许 README
 !/README.md
+# 允许 requirements.txt
+!/requirements.txt
 
 # ✅ test_cases 白名单（逐个文件列出）
 !/test_cases/

@@ -47,8 +47,8 @@ The system follows a **linear pipeline workflow** with no circular dependencies,
 conda create -n code-agent python=3.10 -y
 conda activate code-agent
 
-# 2. Install core dependencies (create requirements.txt first if missing)
-pip install openai==2.8.1 requests>=2.31.0 beautifulsoup4>=4.12.2 lxml>=4.9.0 urllib3>=1.26.16
+# 2. Install dependencies via requirements.txt
+pip install -r requirements.txt
 
 # 3. Configure LLM API key (create api_key.txt in root directory)
 echo "your-alibaba-cloud-tongyi-api-key" > api_key.txt
